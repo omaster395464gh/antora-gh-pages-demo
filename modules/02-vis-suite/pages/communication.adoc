@@ -1,0 +1,46 @@
+= Kommunikation
+
+
+.Kommunikationsmatrix
+[%header]
+|===
+| |Quelle |Ziel | Port/Protokoll
+|VIS-Clients|Client|Ingress|443/tcp+udp (https)
+|VIS-Clients|Ingress/LB|App|8443/tcp+udp (http)
+|DB-Zugriff (extern)|App
+
+Jobprocessor (jp)
+|DB|1521/tcp (sqlnet) oder
+
+1433/tcp (jtds) oder
+
+5432/tcp (pgsql)
+|VIS-Suchserver|VIS-Anwendung|VIS-Suchserver|8880/tcp+udp (http)
+|VIS-Suchserver Replikation|VIS-Suchserver-Follower|VIS-Suchserver-Leader|8880/tcp+udp (http)
+|VIS-Jobprocessor|jp-*|VIS-Anwendung|8080/tcp+udp (http)
+|VIS-JP Volltext|jp-vt|VIS-Suchserver-Leader|8880/tcp+udp (http)
+|VIS-JP Mail|jp-mail|Mailserver|25/tcp (smtp)
+
+465/tcp (smtps)
+|VIS-Anwendung Verzeichnisdienst|VIS-Anwendung|LDAPv3 Server (ADS)|389/tcp+udp (ldap)
+
+636/tcp (ldaps)
+
+3268/tcp (gc ldaps)
+|VIS-Anwendung profileNFS|VIS-Anwendung|NFS Server|2049/tcp (nfs v4)
+
+111,662,2049,4045/tcp+udp (nfs v3)
+|VIS-Anwendung profileFS|VIS-Anwendung|CIFS Server|137-138/udp (NetBIOS)
+
+139,445/tcp (cifs)
+|VIS-Conversion Gateway (Rendition Service)|VIS-Anwendung|VIS Conversion Gateway|8080/tcp+udp (http)
+|VIS-Collabora|VIS-Client
+
+VIS-Anwendung|Collabora|9980/tcp+udp (https)
+|VIS-Collabora|Collabora|Ingress/VIS-Anwendung|443/tcp+udp (https)
+|VIS-Keycloak|VIS-Client
+
+VIS-Anwendung|Keycloak|443/tcp+udp (https)
+|Domain Name System (DNS)|*|*|53/udp (dns)
+|Network Time Protocol (Kerberos)|*|*|123/udp (ntp)
+|===

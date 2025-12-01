@@ -1,0 +1,41 @@
+= Installation
+
+== Voraussetzungen
+
+[tabs]
+====
+Allgemein::
+* Zugriff auf PDV Registry (https://repo.pdv.de)
+* Vorhandener Datenbankserver gemäß VIS-Installationsvoraussetzungen (Oracle DB, MS SQL Server, PostgreSQL)
+** geringe durchschnittliche Latenzzeit für Netzwerkzugriffe (<1ms)
+** geringe durchschnittliche Latenzzeit für Festplattenzugriffe (<3,5ms)
+** hoher Durchsatz für sequentielle Lesevorgänge (> 100 MB/s)
+* Empfohlen Zusatztools:
+** Load-Balancer mit TLS und Session-Persistenz im Kubernetes-Cluster (z.B. HAProxy)
+** ktpass zur Erstellung von Keytabs (Kerberos-Authentifizierung)
+** Git(lab CI) zur Speicherung der Konfiguration und Ausführen von Deployments
+
+Docker Compose::
++
+* Linux Server
+* Docker oder ContainerD / Docker Compose 25+
+
+Kubernetes::
++
+* Kubernetes v1.30+ (kubectl)
+* Helm 3.19+ (helm)
+* Zugriff auf ein vorhandenes Kubernetes-Cluster / 1 Namespace pro Mandant
+* Ausreichend Ressourcen (RAM, vCPU) im Namespace
+** Minimum pro Mandant: 2 vCPU, 8 GB RAM
+* Rechte zum Anlegen von persistenten Volumes (PVC, PV) und ausreichend Speicher
+** Typ: Read-Write-Many für profileFS und VIS  Conversion Gateway (Caching)
+** Typ Read-Write-Once für Suchserver und Logs der Installation, JP
+* Optionale Tools:
+** ArgoCD zur Automatisierung von Deployments
+
+Openshift::
++
+--
+TBD
+--
+====
