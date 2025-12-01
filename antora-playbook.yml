@@ -62,15 +62,15 @@ ui:
             </div>
           </nav>
         </header>
-    - path: partials/nav.hbs
-      contents: |
-        <div class="nav-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
-          <aside class="nav">
-            <div class="panels">
-        {{> nav-menu}}
-            </div>
-          </aside>
-        </div>
+#    - path: partials/nav.hbs
+#      contents: |
+#        <div class="nav-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
+#          <aside class="nav">
+#            <div class="panels">
+#        {{> nav-menu}}
+#            </div>
+#          </aside>
+#        </div>
     - path: partials/edit-this-page.hbs
       contents: |
         {{#if (and page.fileUri (not env.CI))}}
