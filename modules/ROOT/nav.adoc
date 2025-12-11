@@ -1,0 +1,6 @@
+.Getting Started
+* xref:subpage.adoc[Additional Page]
+
+.antora-gh-component1
+* xref:antora-gh-component1:vis-comp1b:index.adoc[]
+* xref:7.0@antora-gh-component1:vis-comp1b:demo.adoc[]
