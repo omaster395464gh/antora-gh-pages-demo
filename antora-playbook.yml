@@ -8,6 +8,8 @@ content:
   sources:
     - url: .
       branches: HEAD
+    - url: https://github.com/omaster395464gh/antora-gh-component1
+      branches: main
 ui:
   bundle:
     url: ./ui-bundle.zip
