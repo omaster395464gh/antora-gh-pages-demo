@@ -1,0 +1,52 @@
+:root {
+	--pdv-blue: #eeeeee;
+	--pdv-blue-dark: #00325f;
+	--pdv-gray: #f4f6f8;
+	--pdv-text: #1f2933;
+}
+
+/* Header */
+.navbar {
+	background-color: var(--pdv-blue);
+}
+
+.navbar a,
+
+.navbar-brand {
+	background-image: url("../img/logo.svg");
+	background-repeat: no-repeat;
+	background-size: 400px auto;
+	padding-left: 80px; /* Abstand für das Logo */
+}
+
+
+/* Sidebar */
+.nav-panel {
+	background-color: var(--pdv-gray);
+}
+
+.nav-panel a {
+	color: var(--pdv-text);
+}
+
+/* Links */
+.doc a {
+	color: var(--pdv-blue);
+}
+.doc a:hover {
+	color: var(--pdv-blue-dark);
+}
+
+/* Headings */
+.doc h1, .doc h2, .doc h3 {
+	color: var(--pdv-blue-dark);
+}
+
+.doc {
+	max-width: 1100px;
+}
+
+.card {
+	border-radius: 0;
+	box-shadow: none;
+}
